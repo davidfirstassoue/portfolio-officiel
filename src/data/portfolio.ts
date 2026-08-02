@@ -16,6 +16,7 @@ export interface Skill {
   name: string;
   category: 'frontend' | 'backend' | 'tools' | 'other';
   level?: number; // 1 to 5 or percentage
+  icon?: string;
 }
 
 export interface Project {
@@ -56,28 +57,31 @@ export const profileData: Profile = {
 
 export const skillsData: Skill[] = [
   // Frontend
-  { name: "React", category: "frontend", level: 5 },
-  { name: "Next.js", category: "frontend", level: 5 },
-  { name: "TypeScript", category: "frontend", level: 5 },
-  { name: "HTML5 & CSS3", category: "frontend", level: 5 },
-  { name: "JavaScript", category: "frontend", level: 5 },
-  { name: "Framer Motion", category: "frontend", level: 4 },
-  
+  { name: "React", category: "frontend", level: 5, icon: "Atom" },
+  { name: "Next.js", category: "frontend", level: 5, icon: "Globe" },
+  { name: "TypeScript", category: "frontend", level: 5, icon: "Code" },
+  { name: "HTML5 & CSS3", category: "frontend", level: 5, icon: "FileCode" },
+  { name: "JavaScript", category: "frontend", level: 5, icon: "Code" },
+  { name: "Framer Motion", category: "frontend", level: 4, icon: "Layers" },
+
   // Backend
-  { name: "Node.js", category: "backend", level: 4 },
-  { name: "Express", category: "backend", level: 4 },
-  { name: "PostgreSQL", category: "backend", level: 4 },
-  { name: "MongoDB", category: "backend", level: 4 },
-  { name: "REST APIs & GraphQL", category: "backend", level: 4 },
-  { name: "Supabase / Firebase", category: "backend", level: 4 },
+  { name: "Node.js", category: "backend", level: 4, icon: "Cpu" },
+  { name: "Express", category: "backend", level: 4, icon: "Server" },
+  { name: "Supabase", category: "backend", level: 4, icon: "Database" },
+  { name: "PostgreSQL", category: "backend", level: 4, icon: "Database" },
+  { name: "MongoDB", category: "backend", level: 4, icon: "Database" },
+  { name: "REST APIs & GraphQL", category: "backend", level: 4, icon: "Network" },
 
   // Tools & Others
-  { name: "Git & GitHub", category: "tools", level: 5 },
-  { name: "Figma", category: "tools", level: 4 },
-  { name: "Docker", category: "tools", level: 3 },
-  { name: "Vercel / Netlify", category: "tools", level: 4 },
-  { name: "CI/CD", category: "tools", level: 3 },
-  { name: "SEO & Accessibilité", category: "other", level: 4 }
+  { name: "Git & GitHub", category: "tools", level: 5, icon: "GitBranch" },
+  { name: "Claude Code", category: "tools", level: 5, icon: "Brain" },
+  { name: "Figma", category: "tools", level: 4, icon: "Figma" },
+  { name: "Docker", category: "tools", level: 3, icon: "Boxes" },
+  { name: "Vercel", category: "tools", level: 4, icon: "Triangle" },
+  { name: "SEO & Accessibilité", category: "other", level: 4, icon: "Search" },
+  { name: "Intégration IA", category: "other", level: 4, icon: "Sparkles" },
+  { name: "UI/UX Design", category: "other", level: 4, icon: "Palette" },
+  { name: "Automatisation IA", category: "other", level: 4, icon: "Workflow" }
 ];
 
 export const projectsData: Project[] = [

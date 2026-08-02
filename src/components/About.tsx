@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import * as LucideIcons from "lucide-react";
 import { User, Code, Server, Wrench, Shield } from "lucide-react";
 import { profileData, skillsData, Skill } from "@/data/portfolio";
 
@@ -88,11 +89,15 @@ export default function About() {
                   </h4>
                   
                   <div className="skills-list">
-                    {skills.map((skill) => (
-                      <span key={skill.name} className="skill-tag">
-                        {skill.name}
-                      </span>
-                    ))}
+                    {skills.map((skill) => {
+                      const IconComponent = skill.icon ? (LucideIcons[skill.icon as keyof typeof LucideIcons] as React.ComponentType<{ size?: number }>) : null;
+                      return (
+                        <span key={skill.name} className="skill-tag">
+                          {IconComponent && <IconComponent size={16} />}
+                          {skill.name}
+                        </span>
+                      );
+                    })}
                   </div>
                 </motion.div>
               );
