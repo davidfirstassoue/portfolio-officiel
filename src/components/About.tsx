@@ -51,18 +51,18 @@ export default function About() {
             
             <p>{profileData.bio}</p>
             
-            <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginTop: "16px", borderTop: "1px solid var(--border-color)", paddingTop: "16px" }}>
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <span style={{ color: "var(--text-muted)", fontSize: "0.9rem" }}>Localisation :</span>
-                <span style={{ fontWeight: 600, fontSize: "0.9rem" }}>{profileData.location}</span>
+            <div className="about-details-container">
+              <div className="about-detail-row">
+                <span className="about-detail-label">Localisation :</span>
+                <span className="about-detail-value">{profileData.location}</span>
               </div>
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <span style={{ color: "var(--text-muted)", fontSize: "0.9rem" }}>Email :</span>
-                <span style={{ fontWeight: 600, fontSize: "0.9rem" }}>{profileData.email}</span>
+              <div className="about-detail-row">
+                <span className="about-detail-label">Email :</span>
+                <span className="about-detail-value">{profileData.email}</span>
               </div>
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <span style={{ color: "var(--text-muted)", fontSize: "0.9rem" }}>Langues :</span>
-                <span style={{ fontWeight: 600, fontSize: "0.9rem" }}>Français (Langue maternelle), Anglais (Technique)</span>
+              <div className="about-detail-row">
+                <span className="about-detail-label">Langues :</span>
+                <span className="about-detail-value">Français (Langue maternelle), Anglais (Technique)</span>
               </div>
             </div>
           </motion.div>
