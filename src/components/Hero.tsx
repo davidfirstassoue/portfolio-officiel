@@ -1,8 +1,46 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Award, Briefcase, Mail } from "lucide-react";
 import { profileData } from "@/data/portfolio";
+
+interface CounterProps {
+  value: number;
+  duration?: number;
+}
+
+function Counter({ value, duration = 2 }: CounterProps) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let start = 0;
+    const end = value;
+    if (start === end) return;
+
+    const totalMiliseconds = duration * 1000;
+    const frameRate = 60;
+    const totalFrames = Math.round(totalMiliseconds / (1000 / frameRate));
+    let frame = 0;
+
+    const counter = setInterval(() => {
+      frame++;
+      const progress = frame / totalFrames;
+      const easedProgress = 1 - Math.pow(1 - progress, 3); // cubic ease out
+      
+      const currentCount = Math.round(easedProgress * end);
+      setCount(currentCount);
+
+      if (frame === totalFrames) {
+        clearInterval(counter);
+      }
+    }, 1000 / frameRate);
+
+    return () => clearInterval(counter);
+  }, [value, duration]);
+
+  return <>{count}</>;
+}
 
 export default function Hero() {
   const containerVariants = {
@@ -28,9 +66,9 @@ export default function Hero() {
   };
 
   const stats = [
-    { num: "5+", label: "Années d'expérience" },
-    { num: "20+", label: "Projets terminés" },
-    { num: "99%", label: "Clients satisfaits" },
+    { num: 5, suffix: "+", label: "Années d'expérience" },
+    { num: 20, suffix: "+", label: "Projets terminés" },
+    { num: 99, suffix: "%", label: "Clients satisfaits" },
   ];
 
   return (
@@ -83,7 +121,10 @@ export default function Hero() {
             <motion.div className="hero-stats" variants={itemVariants}>
               {stats.map((stat, i) => (
                 <div className="stat-item" key={i}>
-                  <span className="stat-num">{stat.num}</span>
+                  <span className="stat-num">
+                    <Counter value={stat.num} />
+                    {stat.suffix}
+                  </span>
                   <span className="stat-label">{stat.label}</span>
                 </div>
               ))}

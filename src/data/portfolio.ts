@@ -46,9 +46,9 @@ export const profileData: Profile = {
   role: "Développeur Full-Stack & UI/UX Designer",
   tagline: "Je conçois et développe des expériences web modernes, performantes et esthétiques.",
   bio: "Passionné par l'intersection du code et du design, je crée des applications web de bout en bout en utilisant les dernières technologies. Mon objectif est d'allier performance technique et excellence visuelle pour offrir la meilleure expérience utilisateur possible.",
-  location: "Paris, France",
+  location: "Libreville , Gabon",
   avatar: "/assets/profile.png", // Will be created or customized
-  email: "david@example.com",
+  email: "davidfirstassoue@gmail.com",
   github: "https://github.com",
   linkedin: "https://linkedin.com",
   twitter: "https://twitter.com",
@@ -136,7 +136,7 @@ export const experienceData: Experience[] = [
     id: "exp-1",
     role: "Développeur Full-Stack Senior",
     company: "Tech Solutions",
-    location: "Paris (Hybride)",
+    location: "Libreville  (Hybride)",
     period: "2024 - Présent",
     description: [
       "Direction technique d'une équipe de 4 développeurs pour la refonte de l'application SaaS principale sous Next.js.",
@@ -149,7 +149,7 @@ export const experienceData: Experience[] = [
     id: "exp-2",
     role: "Développeur Front-End",
     company: "Digital Agency",
-    location: "Paris, France",
+    location: "Libreville , Gabon",
     period: "2022 - 2024",
     description: [
       "Développement de plus de 15 sites web haut de gamme et d'applications interactives pour des clients internationaux.",
