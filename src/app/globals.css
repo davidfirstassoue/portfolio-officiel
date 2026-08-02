@@ -552,9 +552,9 @@ a {
 }
 
 .hero-stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px 48px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
   border-top: 1px solid var(--border-color);
   padding-top: 32px;
   width: 100%;
@@ -567,14 +567,23 @@ a {
 
 .stat-num {
   font-family: var(--font-heading);
-  font-size: 2.25rem;
+  font-size: 1.75rem;
   font-weight: 800;
   color: var(--text-primary);
 }
 
 .stat-label {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
+}
+
+@media (min-width: 640px) {
+  .stat-num {
+    font-size: 2.25rem;
+  }
+  .stat-label {
+    font-size: 0.875rem;
+  }
 }
 
 /* Avatar / Hero Card Visual */
