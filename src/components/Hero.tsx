@@ -81,10 +81,6 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
           >
-            <motion.div className="hero-badge" variants={itemVariants}>
-              <span className="hero-badge-dot" />
-              Disponible pour de nouveaux projets
-            </motion.div>
 
             <motion.h1 className="hero-title" variants={itemVariants}>
               Salut, je suis <br />

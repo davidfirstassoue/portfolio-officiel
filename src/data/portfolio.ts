@@ -49,8 +49,8 @@ export const profileData: Profile = {
   location: "Libreville , Gabon",
   avatar: "/assets/profile.png", // Will be created or customized
   email: "davidfirstassoue@gmail.com",
-  github: "https://github.com",
-  linkedin: "https://linkedin.com",
+  github: "https://github.com/davidfirstassoue",
+  linkedin: "https://www.linkedin.com/in/david-first-a-23394434b/",
   twitter: "https://twitter.com",
   resumeUrl: "#"
 };
