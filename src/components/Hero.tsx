@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Award, Briefcase, Mail } from "lucide-react";
+import { ArrowUpRight, Mail } from "lucide-react";
 import { profileData } from "@/data/portfolio";
 
 interface CounterProps {
@@ -127,49 +127,7 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          <motion.div
-            className="hero-visual"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-          >
-            <div className="hero-avatar-card">
-              <div className="hero-avatar-placeholder">
-                {profileData.name[0]}
-              </div>
-              
-              {/* Floating UX Card */}
-              <div className="floating-card">
-                <div className="floating-card-icon">
-                  <Award size={20} />
-                </div>
-                <div className="floating-card-info">
-                  <span className="floating-card-title">UI/UX Design</span>
-                  <span className="floating-card-subtitle">Designs Premium</span>
-                </div>
-              </div>
-              
-              {/* Floating Code Card */}
-              <div 
-                className="floating-card" 
-                style={{ 
-                  bottom: "auto", 
-                  top: "24px", 
-                  right: "auto", 
-                  left: "-24px",
-                  animation: "float 6s ease-in-out infinite alternate" 
-                }}
-              >
-                <div className="floating-card-icon" style={{ background: "var(--primary-glow)", color: "var(--primary)" }}>
-                  <Briefcase size={20} />
-                </div>
-                <div className="floating-card-info">
-                  <span className="floating-card-title">Full-Stack</span>
-                  <span className="floating-card-subtitle">Projets fiables</span>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+
         </div>
       </div>
     </section>

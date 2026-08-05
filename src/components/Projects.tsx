@@ -50,12 +50,32 @@ export default function Projects() {
                 transition={{ duration: 0.4 }}
                 className="glass-card project-card"
               >
-                {/* Visual placeholder for Project Images */}
+                {/* Visual placeholder or Live Preview for Project Images */}
                 <div className="project-img-container">
-                  <div className="project-img-placeholder">
-                    <Code size={40} />
-                    <span>{project.title}</span>
-                  </div>
+                  {project.previewMode === "image" && project.image ? (
+                    <img 
+                      src={project.image} 
+                      alt={`Aperçu de ${project.title}`} 
+                      className="project-image"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                  ) : project.liveUrl ? (
+                    <>
+                      <iframe
+                        src={project.liveUrl}
+                        title={`Aperçu de ${project.title}`}
+                        className="project-iframe"
+                        scrolling="no"
+                        tabIndex={-1}
+                      />
+                      <div className="project-iframe-overlay" />
+                    </>
+                  ) : (
+                    <div className="project-img-placeholder">
+                      <Code size={40} />
+                      <span>{project.title}</span>
+                    </div>
+                  )}
                 </div>
 
                 <div className="project-details">

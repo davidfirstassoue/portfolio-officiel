@@ -7,35 +7,39 @@ import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 import { profileData } from "@/data/portfolio";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate API call for form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus("success");
-      setFormData({ name: "", email: "", subject: "", message: "" });
+    const formData = new FormData(e.currentTarget);
+    formData.append("access_key", "3d82e4bc-eb50-4057-818f-0c5d29f6b8c8");
+    // Optionnel: on peut ajouter un sujet par défaut si on veut
+    formData.append("subject", "Nouveau message depuis le Portfolio");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
       
-      // Reset status after 5 seconds
+      if (data.success) {
+        setSubmitStatus("success");
+        // Reset form
+        (e.target as HTMLFormElement).reset();
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch (error) {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
       setTimeout(() => setSubmitStatus("idle"), 5000);
-    }, 1500);
+    }
   };
 
   return (
@@ -133,8 +137,6 @@ export default function Contact() {
                     id="name"
                     name="name"
                     required
-                    value={formData.name}
-                    onChange={handleChange}
                     className="form-input-control"
                     placeholder="Votre nom"
                   />
@@ -149,8 +151,6 @@ export default function Contact() {
                     id="email"
                     name="email"
                     required
-                    value={formData.email}
-                    onChange={handleChange}
                     className="form-input-control"
                     placeholder="votre@email.com"
                   />
@@ -166,8 +166,6 @@ export default function Contact() {
                   id="subject"
                   name="subject"
                   required
-                  value={formData.subject}
-                  onChange={handleChange}
                   className="form-input-control"
                   placeholder="Le sujet de votre message"
                 />
@@ -181,8 +179,6 @@ export default function Contact() {
                   id="message"
                   name="message"
                   required
-                  value={formData.message}
-                  onChange={handleChange}
                   className="form-input-control"
                   placeholder="Décrivez votre projet ou votre demande..."
                 />
@@ -212,6 +208,23 @@ export default function Contact() {
                   }}
                 >
                   Message envoyé avec succès ! Merci de me contacter.
+                </div>
+              )}
+
+              {submitStatus === "error" && (
+                <div 
+                  style={{ 
+                    padding: "12px 16px", 
+                    borderRadius: "var(--radius-sm)", 
+                    background: "rgba(239, 68, 68, 0.1)", 
+                    color: "#ef4444", 
+                    border: "1px solid rgba(239, 68, 68, 0.2)",
+                    fontSize: "0.9rem",
+                    fontWeight: 600,
+                    marginTop: "10px"
+                  }}
+                >
+                  Une erreur est survenue lors de l'envoi du message. Veuillez réessayer ou m'envoyer un email directement.
                 </div>
               )}
             </form>

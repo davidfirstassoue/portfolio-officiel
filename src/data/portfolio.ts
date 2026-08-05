@@ -29,6 +29,7 @@ export interface Project {
   githubUrl?: string;
   liveUrl?: string;
   featured: boolean;
+  previewMode?: "iframe" | "image";
 }
 
 export interface Experience {
@@ -87,46 +88,47 @@ export const skillsData: Skill[] = [
 export const projectsData: Project[] = [
   {
     id: "project-1",
-    title: "E-Commerce Premium",
-    description: "Une boutique en ligne moderne avec panier en temps réel, paiement sécurisé Stripe et tableau de bord administrateur complet.",
-    longDescription: "Ce projet est une plateforme e-commerce complète conçue pour offrir une expérience d'achat fluide. Elle intègre un système de panier dynamique, l'authentification sécurisée, la gestion des paiements via Stripe et une interface d'administration pour suivre les commandes et gérer les produits.",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe", "Supabase"],
-    image: "project_ecommerce",
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
-    featured: true
+    title: "Artelly",
+    description: "Site e-commerce élégant pour vêtements et accessoires pour femmes.",
+    longDescription: "Plateforme e-commerce moderne dédiée à la mode féminine. Propose une interface fluide, un catalogue détaillé pour les vêtements et accessoires, et une expérience utilisateur optimisée pour l'achat en ligne.",
+    tags: ["E-commerce", "Mode", "UI/UX", "Next.js"],
+    image: "https://image.thum.io/get/width/1200/crop/800/https://artelly-kipm.vercel.app/",
+    githubUrl: "",
+    liveUrl: "https://artelly-kipm.vercel.app/",
+    featured: true,
+    previewMode: "image"
   },
   {
     id: "project-2",
-    title: "SaaS de Gestion de Tâches",
-    description: "Une application collaborative de gestion de projet type Kanban avec notifications en temps réel et intégration calendrier.",
-    longDescription: "Un SaaS conçu pour les équipes agiles. Il permet de gérer des projets via des tableaux Kanban interactifs, de planifier des sprints, d'assigner des tâches, d'intégrer des calendriers et de recevoir des notifications en temps réel lors des mises à jour d'équipe.",
-    tags: ["React", "Node.js", "Socket.io", "MongoDB", "Express"],
+    title: "LPO",
+    description: "Site web pour une ONG dédiée à la protection de l'enfant.",
+    longDescription: "Plateforme de présentation et de sensibilisation pour l'ONG LPO, dont la mission est la protection et le bien-être des enfants. Le site met en avant les actions, les campagnes et permet de s'informer sur leurs missions essentielles.",
+    tags: ["ONG", "React", "Frontend", "UI/UX"],
     image: "project_saas",
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
+    githubUrl: "",
+    liveUrl: "https://lpo-swjd.vercel.app/",
     featured: true
   },
   {
     id: "project-3",
-    title: "Dashboard d'Analytics",
-    description: "Visualisation de données financières et d'audience avec graphiques interactifs, rapports exportables et filtres avancés.",
-    longDescription: "Un tableau de bord d'analyse de données complexes. Conçu pour le traitement de gros volumes d'informations, il offre des graphiques interactifs modulables, des filtres avancés par période et l'exportation de rapports détaillés en PDF et Excel.",
-    tags: ["Next.js", "TypeScript", "Recharts", "Vanilla CSS", "PostgreSQL"],
+    title: "Notre Gabon",
+    description: "Plateforme pour une ONG spéciale dédiée à la jeunesse.",
+    longDescription: "Site vitrine pour l'ONG Notre Gabon, une organisation centrée sur l'accompagnement, l'éducation et l'autonomisation des jeunes. Le site sert de point de rassemblement pour les initiatives de la jeunesse gabonaise.",
+    tags: ["ONG", "Jeunesse", "Next.js", "Design"],
     image: "project_analytics",
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
+    githubUrl: "",
+    liveUrl: "https://notre-gabon.vercel.app/",
     featured: false
   },
   {
     id: "project-4",
-    title: "Application Météo Interactive",
-    description: "Météo géolocalisée en temps réel avec prévisions à 7 jours, cartes radar interactives et animations météo dynamiques.",
-    longDescription: "Une application météo immersive. Elle utilise la géolocalisation pour fournir des prévisions météo précises à 7 jours, des graphiques d'évolution de température et des arrière-plans animés en fonction du climat actuel.",
-    tags: ["React", "OpenWeatherMap API", "Framer Motion", "CSS Modules"],
+    title: "Eatvite",
+    description: "Site web moderne et attractif pour un restaurant.",
+    longDescription: "Un site vitrine appétissant pour un restaurant, présentant le menu et l'ambiance des lieux. L'interface est conçue pour mettre en valeur les plats et offrir une navigation intuitive qui donne envie.",
+    tags: ["Restaurant", "Vitrines", "React", "Animations"],
     image: "project_weather",
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
+    githubUrl: "",
+    liveUrl: "https://eatvite-psi.vercel.app/",
     featured: false
   }
 ];
